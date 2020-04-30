@@ -21,7 +21,7 @@
       <a class="navbar-brand" href="#">Feasy</a>
   </nav>
   </header>
-   <!-- -------------------------------------ここまでナビゲーションバー --------------------------------------------->
+   <!---------------------------------------ここまでナビゲーションバー --------------------------------------------->
 
 
 <!-- cardを横並びにするためのclass -->
@@ -30,33 +30,30 @@
   
   
    <?php
-   //$genredata  = mysql_real_escape_string($_POST['genre']);
+   //本来は$genredata  = mysql_real_escape_string($_POST['genre']);のようにエスケープ処理をすること
     $genredata = $_POST['genre'];
 
    try {
+     //DbManager.phpのメソッドでデータベース接続
      $db = getDb();
+     //SELECT文の実行
      $stt = $db->prepare("SELECT * FROM shop WHERE shop_genre = '$genredata'");
      $stt->execute();
+     //SELECT結果を$rowにセットし、while文でループ
      while($row = $stt->fetch(PDO::FETCH_ASSOC)) {
-     //foreach($res as $row) { 
    ?>
 
-
-
-
+    <!-- ジャンル検索後のcardを表示 -->
      <div class="col mb-4">
          <div class="card h-100">
-         <img src="images/niku.jpg" class="card-img-top" alt="...">
+         <img src=<?=e($row['shop_images'])?> class="card-img-top" alt="...">
          <div class="card-body">
              <h5 class="card-title"><?=e($row['shop_mei'])?></h5>
              <p class="card-text">所在地：<?=e($row['shop_address'])?></p>
-             <p class="card-text">これは、追加コンテンツへの自然な導入として以下のテキストをサポートする、より幅広いカードです。このコンテンツはもう少し長くなります。</p>
+             <p class="card-text"><?=e($row['shop_word'])?></p>
          </div>
          </div>
      </div>
-
-
-
 
    <?php
      }
@@ -64,6 +61,8 @@
       print "エラーメッセージ：{$e->getMessage()}";
     }
     ?>
+
+    
     </div>
     </div>
    
