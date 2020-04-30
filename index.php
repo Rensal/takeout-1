@@ -5,17 +5,18 @@
   <title>Feasy</title>
  
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
   <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-  <header id="header" role="banner">
     <!-- ナビゲーションバー -->
+  <header id="header" role="banner">
     <nav class="navbar navbar-expand navbar-light bg-primary pt-0 pb-0" >
       <a class="navbar-brand" href="#">Feasy</a>
   </nav>
   </header>
-  
+   <!-- -------------------------------------ここまでナビゲーションバー --------------------------------------------->
+
+   <!-- 画像と検索ボックス -->
   <div class="container card">
     <div class="row">
     <img src="images/index.jpg" class=" img-fluid card-img">
@@ -26,7 +27,8 @@
                <span class="input-group-btn-sm">
                  <button type="button" class="btn btn-primary w-100">検索</button>
                </span>
-          </div>
+            </div>
+
 
           <div class="container">
             <div class="row">
@@ -49,8 +51,12 @@
                           </div>
                           <!-- モーダルの本文 -->
                           <div class="modal-body"><div class="col-4 px-1 px-md-3">
-                            <button type="button" class="btn btn-primary w-100 mt-1 px-0">肉</button>
-                            <button type="button" class="btn btn-primary w-100 mt-1 px-0">ラーメン</button>
+                          <form method='POST' action = "search.php">
+                            <!-- <button type="button" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="肉">肉</button>
+                            <button type="button" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="ラーメン">ラーメン</button> -->
+                            <input type="submit" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="肉">
+                            <input type="submit" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="ラーメン">
+                            </form>
                           </div>
                         </div>
                           <!-- モーダルのフッター -->
@@ -138,7 +144,7 @@
 
 
 
-  <script src="js/jquery-3.5.0.slim.min.js"></script>
-  <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/jquery-3.5.0.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
 </body>
 </html>
