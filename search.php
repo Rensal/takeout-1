@@ -31,12 +31,13 @@
   
    <?php
    //本来は$genredata  = mysql_real_escape_string($_POST['genre']);のようにエスケープ処理をすること
+   //押したジャンルのボタンを取得して$genredataに代入
     $genredata = $_POST['genre'];
 
    try {
      //DbManager.phpのメソッドでデータベース接続
      $db = getDb();
-     //SELECT文の実行
+     //SELECT文の実行、WHEREで押したボタンのジャンルを選別
      $stt = $db->prepare("SELECT * FROM shop WHERE shop_genre = '$genredata'");
      $stt->execute();
      //SELECT結果を$rowにセットし、while文でループ
