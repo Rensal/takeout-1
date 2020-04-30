@@ -52,8 +52,6 @@
                           <!-- モーダルの本文 -->
                           <div class="modal-body"><div class="col-4 px-1 px-md-3">
                           <form method='POST' action = "search.php">
-                            <!-- <button type="button" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="肉">肉</button>
-                            <button type="button" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="ラーメン">ラーメン</button> -->
                             <input type="submit" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="肉">
                             <input type="submit" class="btn btn-primary w-100 mt-1 px-0" name="genre" value="ラーメン">
                             </form>
